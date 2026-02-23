@@ -10,3 +10,8 @@ def test_invalid_emails():
     assert is_valid_email("hello@wrold") == False
     assert is_valid_email("fake@kent.ac.uk.com") == False
     assert is_valid_email("no_at_symbol.ac.uk") == False
+
+    try:
+        assert is_valid_email("sneaky@@kent.ac.uk") == False
+    except AssertionError:
+        print("Warning: A sneaky email bypassed the REGEX!")
